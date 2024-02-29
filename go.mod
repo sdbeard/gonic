@@ -1,6 +1,6 @@
-module go.senan.xyz/gonic
+module github.com/sdbeard/gonic
 
-go 1.21
+go 1.22
 
 require (
 	github.com/Masterminds/sprig v2.22.0+incompatible
@@ -12,7 +12,6 @@ require (
 	github.com/fsnotify/fsnotify v1.7.0
 	github.com/google/shlex v0.0.0-20191202100458-e7afc7fbc510
 	github.com/google/uuid v1.6.0
-	github.com/gorilla/securecookie v1.1.2
 	github.com/gorilla/sessions v1.2.2
 	github.com/jinzhu/gorm v1.9.17-0.20211120011537-5c235b72a414
 	github.com/josephburnett/jd v1.7.1
@@ -25,10 +24,9 @@ require (
 	github.com/sentriz/audiotags v0.0.0-20240202193907-618ae39d7743
 	github.com/sentriz/gormstore v0.0.0-20220105134332-64e31f7f6981
 	github.com/stretchr/testify v1.8.4
-	go.senan.xyz/flagconf v0.1.5
+	go.senan.xyz/gonic v0.16.2
 	golang.org/x/exp v0.0.0-20240222234643-814bf88cf225
 	golang.org/x/net v0.21.0
-	golang.org/x/sync v0.6.0
 	gopkg.in/gormigrate.v1 v1.6.0
 	jaytaylor.com/html2text v0.0.0-20230321000545-74c2419ad056
 )
@@ -41,13 +39,12 @@ require (
 	github.com/go-openapi/jsonpointer v0.20.0 // indirect
 	github.com/go-openapi/swag v0.22.4 // indirect
 	github.com/gorilla/context v1.1.2 // indirect
+	github.com/gorilla/securecookie v1.1.2 // indirect
 	github.com/huandu/xstrings v1.4.0 // indirect
 	github.com/imdario/mergo v0.3.16 // indirect
 	github.com/jinzhu/inflection v1.0.0 // indirect
-	github.com/jinzhu/now v1.1.2 // indirect
 	github.com/josharian/intern v1.0.0 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
-	github.com/lib/pq v1.3.0 // indirect
 	github.com/mailru/easyjson v0.7.7 // indirect
 	github.com/mattn/go-runewidth v0.0.15 // indirect
 	github.com/mitchellh/copystructure v1.2.0 // indirect
@@ -58,6 +55,7 @@ require (
 	github.com/olekukonko/tablewriter v0.0.5 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/rivo/uniseg v0.4.7 // indirect
+	github.com/rogpeppe/go-internal v1.12.0 // indirect
 	github.com/ssor/bom v0.0.0-20170718123548-6386211fdfcf // indirect
 	golang.org/x/crypto v0.20.0 // indirect
 	golang.org/x/image v0.15.0 // indirect
