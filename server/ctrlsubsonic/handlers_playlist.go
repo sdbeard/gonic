@@ -194,11 +194,11 @@ func playlistRender(c *Controller, params params.Params, playlistID string, play
 	}
 
 	resp := &spec.Playlist{
-		ID:        playlistID,
-		Name:      playlist.Name,
-		Comment:   playlist.Comment,
-		Created:   playlist.UpdatedAt,
-		Changed:   playlist.UpdatedAt,
+		ID:      playlistID,
+		Name:    playlist.Name,
+		Comment: playlist.Comment,
+		Created: playlist.UpdatedAt,
+		//Changed:   playlist.UpdatedAt,
 		SongCount: len(playlist.Items),
 		Public:    playlist.IsPublic,
 		Owner:     user.Name,

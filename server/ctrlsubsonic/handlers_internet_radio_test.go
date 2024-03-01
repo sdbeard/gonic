@@ -85,10 +85,10 @@ func runTestCase(t *testing.T, h handlerSubsonic, q url.Values, admin bool) *spe
 			t.Fatalf("invalid character at offset %v\n %s <--", jsonSyntaxError.Offset, body[0:jsonSyntaxError.Offset])
 		}
 
-		var jsonUnmarshalTypeError *json.UnmarshalTypeError
-		if errors.As(err, &jsonSyntaxError) {
-			t.Fatalf("invalid type at offset %v\n %s <--", jsonUnmarshalTypeError.Offset, body[0:jsonUnmarshalTypeError.Offset])
-		}
+		//var jsonUnmarshalTypeError *json.UnmarshalTypeError
+		//if errors.As(err, &jsonSyntaxError) {
+		//	t.Fatalf("invalid type at offset %v\n %s <--", jsonUnmarshalTypeError.Offset, body[0:jsonUnmarshalTypeError.Offset])
+		//}
 
 		t.Fatalf("json unmarshal failed: %v", err)
 	}

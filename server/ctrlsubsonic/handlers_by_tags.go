@@ -338,7 +338,7 @@ func (c *Controller) ServeGetArtistInfoTwo(r *http.Request) *spec.Response {
 		return sub
 	}
 
-	sub.ArtistInfoTwo.Biography = spec.CleanExternalText(info.Biography)
+	//sub.ArtistInfoTwo.Biography = spec.CleanExternalText(info.Biography)
 	sub.ArtistInfoTwo.MusicBrainzID = info.MusicBrainzID
 	sub.ArtistInfoTwo.LastFMURL = info.LastFMURL
 
@@ -414,7 +414,7 @@ func (c *Controller) ServeGetAlbumInfoTwo(r *http.Request) *spec.Response {
 		return sub
 	}
 
-	sub.AlbumInfo.Notes = spec.CleanExternalText(info.Notes)
+	//sub.AlbumInfo.Notes = spec.CleanExternalText(info.Notes)
 	sub.AlbumInfo.MusicBrainzID = info.MusicBrainzID
 	sub.AlbumInfo.LastFMURL = info.LastFMURL
 
