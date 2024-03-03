@@ -17,18 +17,28 @@
 # IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
 # FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
 # COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN
-# AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+# AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTIO
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 # ==================================================================================
 SHELL := /bin/bash
-BINARY ?= unio-bus
+BINARY ?= gonic
 VERSION ?= 1.0.0
-REGISTRY ?= aws.testlab.local:4510/${BINARY}
-DOCKER_REMOTE_HOST ?= "ssh://testlab"
+#REGISTRY ?= aws.testlab.local:4510/${BINARY}
+#DOCKER_REMOTE_HOST ?= "ssh://testlab"
 ENV ?= dev
 
 # Phony targets
-.PHONY: deps-reset tidy deps-upgrade deps-cleancache
+.PHONY: deps-reset tidy deps-upgrade deps-cleancache clean debug
+
+debug: clean
+	@go build -o ./build/$(BINARY) ./cmd/gonic/*.go
+	./build/$(BINARY) -music-path ./build/gonicdir/music -podcast-path ./build/gonicdir/podcast -cache-path ./build/gonicdir/cache -playlists-path ./build/gonicdir/playlist -db-path ./build/gonicdir/data/db
+
+clean:
+	$(info Cleaning previous build...)
+	go clean
+	@if [ -f ./build/$(BINARY) ]; then rm -rf ./build/$(BINARY); fi
+
 
 # ==================================================================================
 # Modules support

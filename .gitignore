@@ -13,3 +13,4 @@ dist
 .tags*
 *.test
 vendor
+build
