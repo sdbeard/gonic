@@ -1,4 +1,4 @@
-module github.com/sdbeard/gonic
+module go.senan.xyz/gonic
 
 go 1.21
 
@@ -26,7 +26,6 @@ require (
 	github.com/sentriz/gormstore v0.0.0-20220105134332-64e31f7f6981
 	github.com/stretchr/testify v1.9.0
 	go.senan.xyz/flagconf v0.1.5
-	go.senan.xyz/gonic v0.16.2
 	golang.org/x/exp v0.0.0-20240222234643-814bf88cf225
 	golang.org/x/net v0.21.0
 	golang.org/x/sync v0.6.0
