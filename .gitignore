@@ -14,3 +14,6 @@ dist
 *.test
 vendor
 build
+
+*.work*
+
