@@ -35,6 +35,7 @@ import (
 	"go.senan.xyz/gonic/handlerutil"
 	"go.senan.xyz/gonic/infocache/albuminfocache"
 	"go.senan.xyz/gonic/infocache/artistinfocache"
+	"go.senan.xyz/gonic/internal/server/api"
 	"go.senan.xyz/gonic/jukebox"
 	"go.senan.xyz/gonic/lastfm"
 	"go.senan.xyz/gonic/listenbrainz"
@@ -255,18 +256,30 @@ func main() {
 	if err != nil {
 		log.Panicf("error creating subsonic controller: %v\n", err)
 	}
+	ctrlAPI := api.New(
+		dbc,
+		scannr,
+		playlistStore,
+		transcoder,
+		api.WithMiddleware(
+			api.CORS(api.CORSConfig{}),
+			api.Gzip(),
+		),
+	)
 
-	chain := handlerutil.Chain()
+	baseChain := handlerutil.Chain()
 	if *confHTTPLog {
-		chain = handlerutil.Chain(handlerutil.Log)
+		baseChain = handlerutil.Chain(handlerutil.Log)
 	}
-	chain = handlerutil.Chain(
-		chain,
+	apiChain := baseChain
+	chain := handlerutil.Chain(
+		baseChain,
 		handlerutil.BasicCORS,
 	)
 	trim := handlerutil.TrimPathSuffix(".view") // /x.view and /x should match the same
 
 	mux := http.NewServeMux()
+	mux.Handle("/api/", http.StripPrefix("/api", apiChain(ctrlAPI)))
 	mux.Handle("/admin/", http.StripPrefix("/admin", chain(ctrlAdmin)))
 	mux.Handle("/rest/", http.StripPrefix("/rest", chain(trim(ctrlSubsonic))))
 	mux.Handle("/ping", chain(handlerutil.Message("ok")))
