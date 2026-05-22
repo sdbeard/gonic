@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="820" viewBox="0 0 1280 820" role="img" aria-labelledby="title desc">
+  <title id="title">Streaming Server Final State</title>
+  <desc id="desc">Final-state architecture for the simplified API-only music streaming server.</desc>
+  <defs>
+    <style>
+      .bg { fill: #f7f8fa; }
+      .title { font: 700 30px sans-serif; fill: #172033; }
+      .subtitle { font: 400 15px sans-serif; fill: #526070; }
+      .section { fill: #ffffff; stroke: #cfd6df; stroke-width: 1.5; rx: 10; }
+      .box { fill: #ffffff; stroke: #8794a6; stroke-width: 1.4; rx: 8; }
+      .box-blue { fill: #eef6ff; stroke: #4b83c4; }
+      .box-green { fill: #effaf4; stroke: #4b9a6a; }
+      .box-gold { fill: #fff7e8; stroke: #c58a2a; }
+      .box-red { fill: #fff0f0; stroke: #c45b5b; }
+      .box-gray { fill: #f2f4f7; stroke: #8d98a7; }
+      .label { font: 700 15px sans-serif; fill: #172033; }
+      .small { font: 400 12px sans-serif; fill: #526070; }
+      .tiny { font: 400 11px sans-serif; fill: #526070; }
+      .section-title { font: 700 14px sans-serif; fill: #394456; }
+      .arrow { stroke: #5f6e7f; stroke-width: 1.8; fill: none; marker-end: url(#arrow); }
+      .arrow-muted { stroke: #9aa6b5; stroke-width: 1.4; fill: none; marker-end: url(#arrow-muted); }
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 Z" fill="#5f6e7f"/>
+    </marker>
+    <marker id="arrow-muted" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 Z" fill="#9aa6b5"/>
+    </marker>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1280" height="820"/>
+  <text class="title" x="48" y="54">API-Only Music Streaming Server</text>
+  <text class="subtitle" x="48" y="80">Final target: playlist playback, direct streaming, transcoding, and future continuous broadcast.</text>
+
+  <rect class="section" x="40" y="115" width="210" height="260"/>
+  <text class="section-title" x="62" y="145">Clients</text>
+  <rect class="box box-blue" x="65" y="170" width="160" height="70"/>
+  <text class="label" x="92" y="200">API Clients</text>
+  <text class="small" x="84" y="220">players, tools, apps</text>
+  <rect class="box box-blue" x="65" y="270" width="160" height="70"/>
+  <text class="label" x="82" y="300">Broadcast</text>
+  <text class="small" x="88" y="320">listeners / relays</text>
+
+  <rect class="section" x="300" y="115" width="260" height="260"/>
+  <text class="section-title" x="322" y="145">HTTP Boundary</text>
+  <rect class="box box-green" x="330" y="170" width="200" height="72"/>
+  <text class="label" x="366" y="200">Native API</text>
+  <text class="small" x="355" y="220">JSON control plane</text>
+  <rect class="box box-green" x="330" y="270" width="200" height="72"/>
+  <text class="label" x="372" y="300">Middleware</text>
+  <text class="small" x="348" y="320">CORS, gzip, auth, logs</text>
+
+  <rect class="section" x="610" y="115" width="330" height="420"/>
+  <text class="section-title" x="632" y="145">Core Components</text>
+  <rect class="box" x="640" y="170" width="120" height="64"/>
+  <text class="label" x="672" y="197">Catalog</text>
+  <text class="tiny" x="661" y="216">tracks, albums</text>
+  <rect class="box" x="790" y="170" width="120" height="64"/>
+  <text class="label" x="824" y="197">Scanner</text>
+  <text class="tiny" x="810" y="216">tags and files</text>
+  <rect class="box" x="640" y="260" width="120" height="64"/>
+  <text class="label" x="668" y="287">Playlists</text>
+  <text class="tiny" x="661" y="306">queues, order</text>
+  <rect class="box" x="790" y="260" width="120" height="64"/>
+  <text class="label" x="820" y="287">Streaming</text>
+  <text class="tiny" x="812" y="306">raw / encoded</text>
+  <rect class="box" x="640" y="350" width="120" height="64"/>
+  <text class="label" x="667" y="377">Broadcast</text>
+  <text class="tiny" x="658" y="396">continuous play</text>
+  <rect class="box" x="790" y="350" width="120" height="64"/>
+  <text class="label" x="814" y="377">Transcode</text>
+  <text class="tiny" x="819" y="396">ffmpeg cache</text>
+  <rect class="box box-gray" x="640" y="450" width="270" height="56"/>
+  <text class="label" x="713" y="476">Pipelines</text>
+  <text class="tiny" x="678" y="495">scan, playlist, stream, broadcast workflows</text>
+
+  <rect class="section" x="990" y="115" width="250" height="420"/>
+  <text class="section-title" x="1012" y="145">Storage</text>
+  <rect class="box box-gold" x="1020" y="170" width="190" height="64"/>
+  <text class="label" x="1066" y="197">JSONFile</text>
+  <text class="tiny" x="1047" y="216">settings, users, state</text>
+  <rect class="box box-gold" x="1020" y="260" width="190" height="64"/>
+  <text class="label" x="1068" y="287">Catalog Index</text>
+  <text class="tiny" x="1038" y="306">JSON first, Elasticsearch optional</text>
+  <rect class="box box-gold" x="1020" y="350" width="190" height="64"/>
+  <text class="label" x="1064" y="377">Filesystem</text>
+  <text class="tiny" x="1038" y="396">music, covers, playlists, cache</text>
+  <rect class="box box-gold" x="1020" y="450" width="190" height="56"/>
+  <text class="label" x="1060" y="476">Config</text>
+  <text class="tiny" x="1051" y="495">env, flags, files</text>
+
+  <rect class="section" x="40" y="600" width="1200" height="160"/>
+  <text class="section-title" x="62" y="630">Removed From Final State</text>
+  <rect class="box box-red" x="70" y="655" width="130" height="58"/>
+  <text class="label" x="104" y="681">Admin UI</text>
+  <text class="tiny" x="98" y="700">templates/static</text>
+  <rect class="box box-red" x="230" y="655" width="130" height="58"/>
+  <text class="label" x="265" y="681">Podcasts</text>
+  <text class="tiny" x="258" y="700">feeds/downloads</text>
+  <rect class="box box-red" x="390" y="655" width="130" height="58"/>
+  <text class="label" x="427" y="681">Jukebox</text>
+  <text class="tiny" x="421" y="700">mpv control</text>
+  <rect class="box box-red" x="550" y="655" width="130" height="58"/>
+  <text class="label" x="589" y="681">Last.fm</text>
+  <text class="tiny" x="582" y="700">metadata/scrobble</text>
+  <rect class="box box-red" x="710" y="655" width="140" height="58"/>
+  <text class="label" x="743" y="681">ListenBrainz</text>
+  <text class="tiny" x="750" y="700">submissions</text>
+  <rect class="box box-red" x="880" y="655" width="140" height="58"/>
+  <text class="label" x="913" y="681">Subsonic-first</text>
+  <text class="tiny" x="916" y="700">legacy API surface</text>
+  <rect class="box box-red" x="1050" y="655" width="150" height="58"/>
+  <text class="label" x="1080" y="681">Play Stats</text>
+  <text class="tiny" x="1078" y="700">scrobble/history</text>
+
+  <path class="arrow" d="M225 205 C260 205 290 205 330 205"/>
+  <path class="arrow" d="M225 305 C260 305 290 305 330 305"/>
+  <path class="arrow" d="M430 242 L430 270"/>
+  <path class="arrow" d="M530 305 C570 305 595 292 640 292"/>
+  <path class="arrow" d="M530 305 C575 305 595 202 640 202"/>
+  <path class="arrow" d="M530 305 C595 305 735 292 790 292"/>
+  <path class="arrow" d="M530 305 C595 305 590 382 640 382"/>
+  <path class="arrow" d="M760 202 L790 202"/>
+  <path class="arrow" d="M760 292 L790 292"/>
+  <path class="arrow" d="M760 382 L790 382"/>
+  <path class="arrow" d="M850 324 L850 350"/>
+  <path class="arrow" d="M910 202 C950 202 980 202 1020 202"/>
+  <path class="arrow" d="M910 292 C950 292 980 292 1020 292"/>
+  <path class="arrow" d="M910 382 C950 382 980 382 1020 382"/>
+  <path class="arrow-muted" d="M850 414 C850 475 965 475 1020 475"/>
+</svg>
+
